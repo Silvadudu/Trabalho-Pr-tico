@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Escolar</title>
+</head>
+<body> 
+    
+  <nav id="navbar">
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">E.E. Nilton Santos</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a class="dropdown-trigger" href="#" data-target="dropdown1"><i class="material-icons right">settings</i></a></li>
+      </ul>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li id="red" class="colors" onclick="vermelho()"><a href="#"></a></li>
+        <li id="green" class="colors" onclick="verde()"><a href="#"></a></li>
+        <li id="blue" class="colors" onclick="azul()"><a href="#"></a></li>
+        <li id="yellow" class="colors" onclick="amarelo()"><a href="#"></a></li>
+        <li id="purple" class="colors" onclick="roxo()"><a href="#"></a></li>
+        <li id="dark" class="colors" onclick="escuro()"><a href="#"></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div>
+      <ul id="slide-out" class="sidenav">
+        <a class="btn-large" id="cadastrar">Cadastrar Aluno</a>
+        <a class="btn-large" id="listar">Listar Alunos</a>
+        <a class="btn-large" id="lixeira">Exibir Lixeira</a>
+      </ul>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+
+<!--#################################################  ÁREA DE CADASTRAR ALUNO  ##################################################-->
+      <div id="div-cadastrar">
+        <div class="row">
+          <div class="input-field col s6">
+            <input placeholder="Nome" id="nome" type="text" class="validate">
+            <label class="active">NOME</label>
+          </div>
+          <div class="input-field col s3">
+            <input placeholder="Idade" id="idade" type="number" class="validate">
+            <label class="active">IDADE</label>
+          </div>
+          <div class="input-field col s3">
+            <input placeholder="Curso" id="curso" type="text" class="validate">
+            <label class="active">CURSO</label>
+          </div>
+          <div id="turno">
+            <label class="label-cadastrar">Turno:</label>
+            <p>
+              <label>
+                <input class="radio-turno" name="group1" type="radio" value="Manhã" id="Manha"/>
+                <span>Manhã</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input class="radio-turno" name="group1" type="radio" value="Tarde" id="Tarde"/>
+                <span>Tarde</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input class="radio-turno" name="group1" type="radio" value="Noite" id="Noite"/>
+                <span>Noite</span>
+              </label>
+            </p>
+            <div class="input-field col s3">
+              <select>
+                <option class="select" value="desmarcado" disabled selected>Selecione</option>
+                <option class="select" value="Sim">Sim</option>
+                <option class="select" value="Não">Não</option>
+              </select>
+              <label>Matriculado</label>
+            </div>
+          </div>
+          <div class="col s12">
+            <a class="btn-small" id="next-cadastrar" onclick="M.toast({html: 'I am a toast'})">Próximo</a>
+          </div>
+        </div>
+      </div>
+      <div id="div-cadastrar-endereco">
+          <div class="input-field col s6">
+              <input placeholder="CEP" type="text" id="cep" class="form-endereco">
+              <label class="active">CEP</label>
+              <a class="btn-small" id="endereco-confirm">Confirmar</a>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Rua" type="text" id="logradouro" class="form-endereco">
+              <label class="active">Logradouro</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Bairro" type="text" id="bairro" class="form-endereco">
+              <label class="active">Bairro</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Cidade" type="text" id="cidade" class="form-endereco">
+              <label class="active">Cidade</label>
+            </div>
+            <div class="input-field col s6">
+              <input placeholder="Estado" type="text" id="unidadeFederal" class="form-endereco">
+              <label class="active">UF</label>
+              <a class="btn-small" id="cadastro-confirm">Cadastrar</a>
+          </div>
+    </div>
+    <!--#################################################  FIM DA ÁREA DE CADASTRAR ALUNO  ##################################################-->
+
+
+    <!--#####################################################  ÁREA DE LISTAR ALUNO  ########################################################-->
+    <div id="div-listar">
+      <ul id="div-cabecalho">
+        <li class="cabecalho">Nome</li>
+        <li class="cabecalho2">Curso</li>
+        <li class="cabecalho2">Turno</li>
+      </ul>
+      <ul class="collapsible">
+      </ul>
+      <i class="material-icons" id="deleteAll2">delete_forever</i>
+    </div>
+    <!--################################################### FIM DA ÁREA DE LISTAR ALUNO  ########################################################-->
+
+
+    <!--#######################################################  ÁREA DE LIXEIRA  ########################################################-->
+    <div id="div-lixeira">
+      <ul id="div-cabecalho">
+        <li class="cabecalho">Nome</li>
+        <li class="cabecalho2">Curso</li>
+        <li class="cabecalho2">Turno</li>
+      </ul>
+      <ul class="collapsible collapsible2">
+      </ul>
+      <i class="material-icons" id="deleteAll">delete_forever</i>
+      <button id="restaurarAll">Restaurar todos</button>
+    </div>
+    <!--###################################################  FIM DA ÁREA DE LIXEIRA  ########################################################-->
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="myJs/script.js"></script>
+    <script src="myJs/cadastro.js"></script>
+    <script src="myJs/listagem.js"></script>
+    <script src="myJs/listaAlunos.js"></script>
+    <script src="myJs/functionsF.js"></script>
+    <script src="myJs/lixeira.js"></script>
+    <script src="myJs/changeTheme.js"></script>
+</body>
+</html>
